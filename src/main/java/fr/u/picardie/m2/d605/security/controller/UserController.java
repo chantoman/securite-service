@@ -3,9 +3,8 @@ package fr.u.picardie.m2.d605.security.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,7 +15,7 @@ import fr.u.picardie.m2.d605.security.dao.UserDao;
 @RestController
 @RequestMapping("userAll")
 public class UserController {
-
+    private String role;
 //	@Autowired
 //	private PasswordEncoder passwordEncoder;
 //
@@ -47,10 +46,10 @@ public class UserController {
 //	}
 //
 	@GetMapping
-	public List<User> findAll(Pageable pageable) {
-		List<User> allBeans = userDao.findAll(pageable).getContent();
-		return allBeans;
+	public String findAll(Pageable pageable) {
+		return role;
 	}
+	
 //
 //	@GetMapping("{login}")
 //	public EntityModel<User> findByLogin(@PathVariable String login) {
