@@ -1,0 +1,20 @@
+apiVersion: extensions/0.0.1-SNAPSHOT
+kind: Deployment
+metadata:
+  name: securite-service
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: service-securite
+    spec:
+      containers:
+      - name: actuator-sample
+        image: registry.gitlab.com/marcolenzo/actuator-sample
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8280
+      imagePullSecrets:
+        - name: registry.gitlab.com
+  
